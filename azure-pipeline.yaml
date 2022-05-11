@@ -5,16 +5,16 @@ steps:
   - task: AmazonWebServices.aws-vsts-tools.S3Upload.S3Upload@1
     displayName: Create Deploy Bucket
     inputs:
-      awsCredentials: 'AWS Con'
+      awsCredentials: 'aws_con'
       regionName: 'us-east-1'
-      bucketName: cf-templates-1ia9ku75ifat8-us-east-1
+      bucketName: awsazurejjm
       sourceFolder: templates
   
   - task: CloudFormationCreateOrUpdateStack@1
     inputs:
-      awsCredentials: 'AWS Con'
+      awsCredentials: 'aws_con'
       regionName: 'us-east-1'
       stackName: 'my-rds-stack'
       templateSource: 's3'
-      s3BucketName: 'cf-templates-1ia9ku75ifat8-us-east-1'
+      s3BucketName: 'awsazurejjm'
       s3ObjectKey: 'rds-sample.yaml'
